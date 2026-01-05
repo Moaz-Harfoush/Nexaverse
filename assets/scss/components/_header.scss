@@ -1,0 +1,67 @@
+/*=============== Header ===============*/
+@use 'media-queries' as *;
+@use '../config/variables' as *;
+@use 'animations' as *;
+
+.container {
+	padding: 40px 20px;
+	max-width: 1200px;
+	margin: 0 auto;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.header {
+
+    text-align: center;
+	margin-bottom: 60px;
+	// opacity: 0;
+	// animation: fadeUp 0.8s ease-out 1s forwards;
+
+    &-logo svg {
+        width: 6rem;
+        margin-bottom: 1.5rem;
+    }
+
+    &-brand-name {
+        font-family: 'Syne', sans-serif;
+        font-size: 3.25rem;
+        font-weight: 600;
+        letter-spacing: 6px;
+        margin-bottom: 12px;
+        background: linear-gradient(135deg, $primary 0%, #ffffff 50%,  $secondary 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-transform: uppercase;
+
+        @include mobile {
+            font-size: 2.5rem;
+        }
+
+        @include phone {
+            font-size: 1.8rem;
+            letter-spacing: 4px;
+        }
+
+    }
+
+    &-tagline {
+
+        font-size: 13px;
+        letter-spacing: 5px;
+        color: rgba(255, 255, 255, 0.5);
+        text-transform: uppercase;
+        font-weight: 300;
+
+        @include phone {
+            font-size: 11px;
+            letter-spacing: 2.5px;
+        }
+
+    }
+
+
+}
+
