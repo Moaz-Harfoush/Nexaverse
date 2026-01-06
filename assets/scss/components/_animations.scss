@@ -1,12 +1,22 @@
 /*=============== Animations ===============*/
 
-@keyframes fadeUp {
+@keyframes fadeUp {	
+	
+	from {
+		transform: translateY(30px);
+	}
+
 	to {
 		opacity: 1;
 		transform: translateY(0);
 	}
 
-	from {
-		transform: translateY(30px);
+}
+
+@keyframes spin {
+
+	to {
+		transform: rotate(360deg);
 	}
+	
 }
