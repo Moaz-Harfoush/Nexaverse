@@ -1,7 +1,7 @@
 /*=============== Menu ===============*/
-@use 'media-queries' as *;
 @use '../config/variables' as *;
 @use 'animations' as *;
+@use 'media-queries' as *;
 
 .menu {
     display: grid;
@@ -16,7 +16,7 @@
     }
 
     @include phone {
-        grid-template-columns: repeat(2, 140px);
+        grid-template-columns: repeat(2, 120px);
     }
 
 	gap: 25px;
@@ -64,7 +64,7 @@
     }
 
     @include phone {
-        height: 130px;
+        height: 110px;
     }
 
     &::before {
@@ -137,6 +137,7 @@
 
         @include phone {
             font-size: 10px;
+            letter-spacing: 2px;
         }
 
     }
@@ -144,6 +145,10 @@
     &:hover &-title {
         color: #ffffff;
         letter-spacing: 4px;
+
+        @include phone {
+            letter-spacing: 3px;
+        }
     }
 
 }

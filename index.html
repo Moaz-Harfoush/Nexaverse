@@ -23,7 +23,7 @@
     </div>
 
     <div class="grid-overlay">
-
+        
     </div> 
 
     <div class="container">
@@ -50,7 +50,7 @@
 
         <!-- Menu Grid -->
         <div class="menu">
-            <div class="menu-item initial-load" onclick="hidePageElements()" data-section="introduction">
+            <div class="menu-item initial-load" data-section="introduction">
                 <div class="menu-item-badge">IN</div>
                 <div class="menu-item-title">Introduction</div>
             </div>
@@ -70,12 +70,102 @@
                 <div class="menu-item-badge">AB</div>
                 <div class="menu-item-title">About</div>
             </div>
-            <div class="menu-item initial-load" data-section="contact">
+            <div class="menu-item initial-load" onclick="hidePageElements()" data-section="contact">
                 <div class="menu-item-badge">CT</div>
                 <div class="menu-item-title">Contact</div>
             </div>
         </div>
+
+        <div>
+
+            <div class="layout-section" id="contact">
+
+                <div class="layout-mini-header">
+                    <div class="layout-mini-header__logo">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="smallLogoGrad6" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#00f0ff"/>
+                                    <stop offset="100%" style="stop-color:#ff00d4"/>
+                                </linearGradient>
+                            </defs>
+                            <polygon points="50,10 85,32 85,68 50,90 15,68 15,32" fill="none" stroke="url(#smallLogoGrad6)" stroke-width="3"/>
+                            <circle cx="50" cy="50" r="10" fill="url(#smallLogoGrad6)"/>
+                        </svg>
+                    </div>
+                    <div class="layout-mini-header__brand">
+                        <h3>NEXAVERSE</h3>
+                        <p>Digital Excellence</p>
+                    </div>
+                </div>
+                
+                <button class="back-btn">← Back to Menu</button>                
+
+                <div class="layout-section-header">
+                    <h2 class="layout-section-header__title">Get in Touch</h2>
+                    <p class="layout-section-header__subtitle">Let's create something amazing together</p>
+                </div>
+
+                <div class="contact-layout">
+
+                    <form class="contact-form">
+
+                        <div class="contact-form__group">
+                            <input type="text" placeholder="Your Name">
+                        </div>
+
+                        <div class="contact-form__group">
+                            <input type="email" placeholder="Your Email">
+                        </div>
+
+                        <div class="contact-form__group">
+                            <input type="text" placeholder="Subject">
+                        </div>
+
+                        <div class="contact-form__group">
+                            <textarea placeholder="Your Message"></textarea>
+                        </div>
+
+                        <button class="contact-form__submit">Send Message</button>
+
+                    </form>
+
+                    <div class="contact-info-list">
+
+                        <div class="contact-info-item">
+                            <div class="contact-info-item__icon">📍</div>
+                            <div class="contact-info-item__details">
+                                <h4>Location</h4>
+                                <p>123 Innovation Drive, San Francisco, CA 94107</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <div class="contact-info-item__icon">📧</div>
+                            <div class="contact-info-item__details">
+                                <h4>Email</h4>
+                                <p>hello@nexaverse.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <div class="contact-info-item__icon">📞</div>
+                            <div class="contact-info-item__details">
+                                <h4>Phone</h4>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
         
+        <!-- Footer -->
         <footer class="footer">
 
             <p>

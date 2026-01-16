@@ -7,6 +7,8 @@ window.addEventListener('load', () =>  {
 const menuItems = document.querySelectorAll('.menu-item');
 const header = document.querySelector('.header');
 const footer = document.querySelector('.footer');
+const menu = document.querySelector('.menu');
+const contact = document.getElementById('contact');
 
 function hidePageElements() {
     // Prepare menu items: reset opacity and stop any animation
@@ -42,10 +44,49 @@ function hidePageElements() {
     // After all animations complete, hide elements completely
     setTimeout(() => {
         header.style.display = 'none';
-        menuItems.style.display = 'none';
+        menu.style.display = 'none';
         footer.style.display = 'none';
+        contact.classList.add('active');
     }, 1000);
 
 }
+
+
+
+// Contact Form Submission Handling
+const form = document.querySelector('.contact-form');
+const submitBtn = document.querySelector('.contact-form__submit');
+const inputs = form.querySelectorAll('input, textarea');
+
+async function sendMessage() {
+    await new Promise(resolve => setTimeout(resolve, 2000));
+}
+
+function toggleButton(isSending) {
+    submitBtn.disabled = isSending;
+    submitBtn.textContent = isSending
+        ? 'Sending...'
+        : 'Send Message';
+}
+
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const allFilled = [...inputs].every(input => input.value.trim() !== '');
+    if (!allFilled) return;
+
+    toggleButton(true);
+
+    try {
+        await sendMessage();
+        form.reset();
+        alert('🌿 Message sent successfully! We’ll sprout back to you soon.');
+    } finally {
+        toggleButton(false);
+    }
+});
+
+
+
 
 

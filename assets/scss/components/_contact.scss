@@ -1,0 +1,171 @@
+/*=============== Contact ===============*/
+@use '../config/variables' as *;
+@use 'animations' as *;
+@use 'media-queries' as *;
+
+.contact-layout {
+
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 40px;
+
+	@include tablet {
+		grid-template-columns: 1fr;
+	}
+
+}
+
+.contact-form {
+	
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+
+	&__group {
+		position: relative;
+
+		input,
+		textarea {
+			width: 100%;
+			padding: 16px 20px;
+			background: $glass-bg;
+			backdrop-filter: blur(20px);
+			-webkit-backdrop-filter: blur(20px);
+			border: 1px solid $glass-border;
+			border-radius: 12px;
+			color: #ffffff;
+			font-family: 'Outfit', sans-serif;
+			font-size: 14px;
+			transition: all 0.3s ease;
+
+			&::placeholder {
+				color: rgba(255, 255, 255, 0.4);
+			}
+
+			&:focus {
+				outline: none;
+				border-color: $primary;
+				box-shadow: 0 0 20px $glow-cyan;
+			}
+		}
+
+		textarea {
+			min-height: 150px;
+			resize: vertical;
+		}
+	}
+
+	&__submit {
+		padding: 16px 40px;
+		background: $glass-bg;
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		border: 1px solid $glass-border;
+		border-radius: 50px;
+		color: $primary;
+		font-family: 'Syne', sans-serif;
+		font-size: 14px;
+		font-weight: 600;
+		letter-spacing: 2px;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		position: relative;
+		overflow: hidden;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 50%;
+			background: linear-gradient(
+				180deg,
+				rgba(255, 255, 255, 0.1) 0%,
+				transparent 100%
+			);
+			border-radius: 50px 50px 0 0;
+		}
+
+		&:hover {
+			background: rgba(0, 240, 255, 0.1);
+			border-color: $primary;
+			transform: translateY(-3px);
+			box-shadow:
+				0 15px 30px rgba(0, 0, 0, 0.3),
+				0 0 30px rgba(0, 200, 220, 0.25);
+		}
+	}
+}
+
+.contact-info-list {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+}
+
+.contact-info-item {
+	background: $glass-bg;
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	border: 1px solid $glass-border;
+	border-radius: 16px;
+	padding: 25px;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	transition: all 0.3s ease;
+
+	&:hover {
+		border-color: $primary;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+	}
+
+	&__icon {
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		background: linear-gradient(
+			135deg,
+			rgba(0, 240, 255, 0.2),
+			rgba(157, 78, 221, 0.2)
+		);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 20px;
+		color: $primary;
+		position: relative;
+		overflow: hidden;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 2px;
+			left: 10%;
+			right: 10%;
+			height: 40%;
+			background: linear-gradient(
+				180deg,
+				rgba(255, 255, 255, 0.3) 0%,
+				transparent 100%
+			);
+			border-radius: 50%;
+		}
+	}
+
+	&__details {
+		h4 {
+			font-family: 'Syne', sans-serif;
+			font-size: 14px;
+			font-weight: 500;
+			color: rgba(255, 255, 255, 0.5);
+			margin-bottom: 5px;
+		}
+
+		p {
+			color: #ffffff;
+			font-size: 15px;
+		}
+	}
+}

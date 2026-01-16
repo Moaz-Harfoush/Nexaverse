@@ -1,7 +1,8 @@
-/*=============== Style ===============*/
 @use 'base/base' as *; 
+@use 'layout/layout' as *; 
 @use 'components/loading' as *;
 @use 'components/background' as *; 
 @use 'components/header' as *;
 @use 'components/menu' as *;
 @use 'components/footer' as *;
+@use 'components/contact' as *;
