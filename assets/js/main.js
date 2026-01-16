@@ -9,6 +9,19 @@ const header = document.querySelector('.header');
 const footer = document.querySelector('.footer');
 const menu = document.querySelector('.menu');
 const contact = document.getElementById('contact');
+const sections = document.querySelector('.layout-section');
+
+let activeSection;
+let isAnimating = false;
+menuItems.forEach(item => {
+    item.addEventListener('click', () => {
+        if (isAnimating) return;
+        isAnimating = true;
+
+        activeSection = item.dataset.section;
+        hidePageElements();
+    });
+});
 
 function hidePageElements() {
     // Prepare menu items: reset opacity and stop any animation
@@ -46,11 +59,16 @@ function hidePageElements() {
         header.style.display = 'none';
         menu.style.display = 'none';
         footer.style.display = 'none';
-        contact.classList.add('active');
+        
+        const targetSection = document.getElementById(activeSection);
+        if (targetSection) {
+            targetSection.classList.add('active');
+        }
+
+        isAnimating = false;
     }, 1000);
 
 }
-
 
 
 // Contact Form Submission Handling
