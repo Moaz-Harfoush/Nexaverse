@@ -73,7 +73,7 @@ function hidePageElements() {
 
 // Contact Form Submission Handling
 const form = document.querySelector('.contact-form');
-const submitBtn = document.querySelector('.contact-form__submit');
+const submitBtn = document.querySelector('.contact-form-submit');
 const inputs = form.querySelectorAll('input, textarea');
 
 async function sendMessage() {
