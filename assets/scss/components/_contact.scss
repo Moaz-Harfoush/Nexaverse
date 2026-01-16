@@ -1,4 +1,5 @@
 /*=============== Contact ===============*/
+
 @use '../config/variables' as *;
 @use 'animations' as *;
 @use 'media-queries' as *;
@@ -21,7 +22,7 @@
 	flex-direction: column;
 	gap: 20px;
 
-	&__group {
+	&-group {
 		position: relative;
 
 		input,
@@ -55,7 +56,7 @@
 		}
 	}
 
-	&__submit {
+	&-submit {
 		padding: 16px 40px;
 		background: $glass-bg;
 		backdrop-filter: blur(20px);
@@ -121,7 +122,7 @@
 		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 	}
 
-	&__icon {
+	&-icon {
 		width: 50px;
 		height: 50px;
 		border-radius: 50%;
@@ -154,7 +155,7 @@
 		}
 	}
 
-	&__details {
+	&-details {
 		h4 {
 			font-family: 'Syne', sans-serif;
 			font-size: 14px;
