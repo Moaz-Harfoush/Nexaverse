@@ -78,22 +78,20 @@ const portfolioCards  = document.querySelectorAll('.portfolio-card');
 filterButtons.forEach(btn => {
     btn.addEventListener('click', () => {
         const category = btn.dataset.category;
-        
-        for (const el of filterButtons) {
-            el.classList.remove('is-active');
-        }
+
+        filterButtons.forEach(el => el.classList.remove('is-active'));
 
         btn.classList.add('is-active');
-        
-        for (const item of portfolioCards ) {
-            if (category === 'all' || item.dataset.category === category) {
-                item.style.display = 'block';
-                item.style.animation = 'tabFade 0.4s ease-out';
-            } else {
-                item.style.display = 'none';
-            }
+
+        portfolioCards.forEach(item => {
+        if (category === 'all' || item.dataset.category === category) {
+            item.style.display = 'block';
+            item.style.animation = 'tabFade 0.4s ease-out';
+        } else {
+            item.style.display = 'none';
         }
-    })
+        });
+    });
 });
 
 
