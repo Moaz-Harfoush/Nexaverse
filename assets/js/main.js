@@ -9,7 +9,7 @@ const header = document.querySelector('.header');
 const footer = document.querySelector('.footer');
 const menu = document.querySelector('.menu');
 const contact = document.getElementById('contact');
-const sections = document.querySelector('.layout-section');
+// const sections = document.querySelector('.layout-section');
 
 let activeSection;
 let isAnimating = false;
@@ -19,6 +19,7 @@ menuItems.forEach(item => {
         isAnimating = true;
 
         activeSection = item.dataset.section;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         hidePageElements();
     });
 });
@@ -70,10 +71,9 @@ function hidePageElements() {
 
 }
 
-
-// Portfolio Category Filter Function
-const filterButtons =  document.querySelectorAll('.portfolio-filters button')
-const portfolioCards  = document.querySelectorAll('.portfolio-card');
+// Global Category Filtering for Portfolio and Services Sections
+const filterButtons =  document.querySelectorAll('.filter-group button')
+const portfolioCards  = document.querySelectorAll('.portfolio-card, .services-item');
 
 function filterGallery(category, btn) {
     filterButtons.forEach(b => b.classList.remove('is-active'));
@@ -81,7 +81,7 @@ function filterGallery(category, btn) {
 
     portfolioCards.forEach(item => {
         if (category === 'all' || item.dataset.category === category) {
-            item.style.display = 'block';
+            item.style.display = 'flex';
             item.style.animation = 'tabFade 0.4s ease-out';
         } else {
             item.style.display = 'none';

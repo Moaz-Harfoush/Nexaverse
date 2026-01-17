@@ -131,4 +131,31 @@
 }
 
 
+.filter-group {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin-bottom: 30px;
+	flex-wrap: wrap;
+
+	.btn-filter {
+		padding: 10px 20px;
+		background: transparent;
+		border: 1px solid $glass-border;
+		border-radius: 30px;
+		color: rgba(255, 255, 255, 0.6);
+		font-size: 12px;
+		letter-spacing: 1px;
+		cursor: pointer;
+		transition: all 0.3s ease;
+
+		&:hover,
+		&.is-active {
+			background: rgba(0, 240, 255, 0.1);
+			border-color: $primary;
+			color: $primary;
+		}
+	}
+}
+
 
