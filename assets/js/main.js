@@ -72,27 +72,36 @@ function hidePageElements() {
 }
 
 // Global Category Filtering for Portfolio and Services Sections
-const filterButtons =  document.querySelectorAll('.filter-group button')
-const portfolioCards  = document.querySelectorAll('.portfolio-card, .services-item');
+const tabBtn = document.querySelectorAll('.tab-btn');
+const servicesItems = document.querySelectorAll('.services-item');
+const portfolioFilter = document.querySelectorAll('.portfolio-filter');
+const portfolioCards  = document.querySelectorAll('.portfolio-card');
 
-function filterGallery(category, btn) {
-    filterButtons.forEach(b => b.classList.remove('is-active'));
+function filterElements(parentOfBtn, elements, category, btn) {
+    parentOfBtn.forEach(el => el.classList.remove('is-active'));
     btn.classList.add('is-active');
 
-    portfolioCards.forEach(item => {
-        if (category === 'all' || item.dataset.category === category) {
-            item.style.display = 'flex';
-            item.style.animation = 'tabFade 0.4s ease-out';
+    elements.forEach(el => {
+        if (category === 'all' || el.dataset.category === category) {
+            el.style.display = 'flex';
+            el.style.animation = 'tabFade 0.4s ease-out';
         } else {
-            item.style.display = 'none';
+            el.style.display = 'none';
         }
     });
 }
 
-filterButtons.forEach(el => {
+tabBtn.forEach(el => {
     el.addEventListener('click', () => {
         let selectedCategory = el.dataset.category;
-        filterGallery(selectedCategory, el);
+        filterElements(tabBtn, servicesItems, selectedCategory, el);
+    });
+});
+
+portfolioFilter.forEach(el => {
+    el.addEventListener('click', () => {
+        let selectedCategory = el.dataset.category;
+        filterElements(portfolioFilter, portfolioCards, selectedCategory, el);
     });
 })
 
@@ -129,8 +138,3 @@ form.addEventListener('submit', async (e) => {
         toggleButton(false);
     }
 });
-
-
-
-
-
