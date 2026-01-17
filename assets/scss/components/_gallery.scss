@@ -8,6 +8,8 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
 
+
+
     .portfolio-card {
         position: relative;
         border-radius: 16px;
@@ -59,6 +61,15 @@
             }
         }
     }
+    
+    @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include phone {
+        grid-template-columns: 1fr;
+    }
+    
 }
 
 .portfolio-filters {
