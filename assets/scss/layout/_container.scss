@@ -1,0 +1,12 @@
+/*=============== Container ===============*/
+
+.container {
+	padding: 40px 20px;
+	max-width: 1200px;
+	margin: 0 auto;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+    position: relative;
+    z-index: 10;
+}

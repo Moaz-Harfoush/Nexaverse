@@ -1,0 +1,80 @@
+/*=============== About ===============*/
+
+@use '../utilities/variables' as *;
+@use '../utilities/mixins' as *;
+
+.about-content {
+    
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 40px;
+	align-items: center;
+
+    &-text h3 {
+        @include font(500, 28px);
+        margin-bottom: 20px;
+        color: $primary;
+    }
+
+    &-text p {
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.8;
+        margin-bottom: 15px;
+    }
+
+    &-text a {
+        color: $primary;
+        text-decoration: none;
+        position: relative;
+        padding-bottom: 2px;
+        transition: all 0.3s ease;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, $primary, $accent);
+            transition: width 0.3s ease;
+        }
+
+        &:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+
+    &-image {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(157, 78, 221, 0.1));
+        }
+    }
+
+    @include tablet {
+        grid-template-columns: 1fr;
+    }
+
+    @include mobile {
+        text-align: center;
+    }
+
+}

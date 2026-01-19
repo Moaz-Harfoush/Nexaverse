@@ -1,0 +1,70 @@
+/*=============== Mixins ===============*/
+
+@use 'variables' as *;
+
+@mixin glass($radius: 16px) {
+    background: $glass-bg;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid $glass-border;
+    border-radius: $radius;
+}
+
+@mixin flex-center($direction: row, $gap: null) {
+
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+
+    @if $gap != null {
+        gap: $gap;
+    }
+
+}
+
+@mixin gradient-text($white: null, $from: $primary, $to: $accent) {
+    
+    @if $white != null {
+        background: linear-gradient(135deg, $from 0%, $white 50%, $to 100%);
+    }
+    @else {
+        background: linear-gradient(135deg, $from, $to);
+    }
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+}
+
+@mixin position($position, $top, $left) {
+    position: $position;
+    top: $top;
+    left: $left;
+}
+
+@mixin font( $weight, $size, $spacing: 1px) {
+    font-family: 'Syne', sans-serif;
+	font-size: $size;
+	font-weight: $weight;
+    letter-spacing: $spacing;
+}
+
+@mixin tablet {
+    @media screen and (max-width: 1000px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin phone {
+    @media screen and (max-width: 480px) {
+        @content;
+    }
+}

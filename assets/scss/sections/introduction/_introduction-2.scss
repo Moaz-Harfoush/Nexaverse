@@ -1,0 +1,159 @@
+/*=============== Introduction-2 ===============*/
+
+@use '../../utilities/variables' as *;
+@use '../../utilities/mixins' as *;
+
+.metrics {
+    @include glass(20px);
+    @include flex-center(row, 50px);
+    padding: 40px 50px;
+    margin-bottom: 60px;
+
+    @include tablet {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    @include mobile {
+        padding: 30px 25px;
+    }
+
+    .metrics-item {
+        text-align: center;
+
+        .metrics-value {
+            @include font(700, 42px);
+            @include gradient-text;
+            display: inline;
+
+            @include mobile {
+                font-size: 32px;
+            }
+        }
+
+        .metrics-suffix {
+            @include font(700, 28px);
+            @include gradient-text;
+        }
+
+        .metrics-label {
+            display: block;
+            @include font(500, 13px);
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 8px;
+        }
+    }
+
+    .metrics-divider {
+        width: 1px;
+        height: 50px;
+        background: linear-gradient(
+            180deg,
+            transparent,
+            rgba(255, 255, 255, 0.15),
+            transparent
+        );
+
+        @include tablet {
+            display: none;
+        }
+    }
+}
+
+.values {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 60px;
+
+    @include tablet {
+        grid-template-columns: 1fr;
+    }
+
+    .value-card {
+        @include glass(20px);
+        padding: 35px 30px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s ease;
+
+        &:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 240, 255, 0.2);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .value-number {
+            @include font(700, 48px);
+            color: rgba(0, 240, 255, 0.15);
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+
+        h3 {
+            @include font(600, 20px);
+            color: $primary;
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.6);
+        }
+    }
+}
+
+.marquee {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background: rgba(0,0,0,0.05);
+    padding: 15px 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+    &::before, &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100px;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    &::before {
+        left: 0;
+        background: linear-gradient(90deg, $dark-1, transparent);
+    }
+
+    &::after {
+        right: 0;
+        background: linear-gradient(-90deg, $dark-1, transparent);
+    }
+    
+    &-track {
+        display: inline-block;
+        white-space: nowrap;
+        animation: moveLeft 30s linear infinite;
+    }
+
+    &-item {
+        display: inline-block;
+        @include font(600, 16px);
+        color: #c3c3c3;
+        margin: 0 20px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: all .5s;
+    }
+
+    &-item:hover {
+        color: $primary;
+    }
+}
+
+
+
+
+

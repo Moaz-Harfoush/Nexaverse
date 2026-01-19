@@ -1,0 +1,50 @@
+/*=============== Header ===============*/
+
+@use '../utilities/variables' as *;
+@use '../utilities/mixins' as *;
+
+.header {
+
+    text-align: center;
+	margin-bottom: 60px;
+	opacity: 0;
+	animation: fadeUp 0.8s ease-out 1s forwards;
+
+    &-logo svg {
+        width: 6rem;
+        margin-bottom: 1.5rem;
+    }
+
+    &-brand-name {
+        @include font(600, 3.25rem, 6px);
+        @include gradient-text(#fff);
+        text-transform: uppercase;
+        margin-bottom: 12px;
+
+        @include mobile {
+            font-size: 2.5rem;
+        }
+
+        @include phone {
+            font-size: 1.8rem;
+            letter-spacing: 4px;
+        }
+
+    }
+
+    &-tagline {
+
+        @include font(300, 13px, 5px);
+        color: rgba(255, 255, 255, 0.5);
+        text-transform: uppercase;
+
+        @include phone {
+            font-size: 11px;
+            letter-spacing: 2.5px;
+        }
+
+    }
+
+
+}
+

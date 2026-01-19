@@ -1,0 +1,192 @@
+/*=============== Introduction-1 ===============*/
+
+@use '../../utilities/variables' as *;
+@use '../../utilities/mixins' as *;
+
+.hero {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 25px;
+	align-items: center;
+	margin-bottom: 60px;
+	padding: 40px 0;
+
+	@include tablet {
+		grid-template-columns: 1fr;
+		gap: 40px;
+	}
+
+	&-content {
+		max-width: 550px;
+
+		@include tablet {
+			text-align: center;
+			max-width: 100%;
+		}
+	}
+
+	&-badge {
+		display: inline-block;
+		padding: 8px 18px;
+		background: rgba(0, 240, 255, 0.1);
+		border: 1px solid rgba(0, 240, 255, 0.3);
+		border-radius: 50px;
+		font-size: 12px;
+		letter-spacing: 2px;
+		color: $primary;
+		margin-bottom: 25px;
+	}
+
+	&-title {
+		@include font(700, 52px);
+		line-height: 1.15;
+		margin-bottom: 25px;
+		color: #ffffff;
+
+		span {
+			@include gradient-text;
+		}
+
+		@include mobile {
+			font-size: 36px;
+		}
+		
+		@include phone {
+			font-size: 26px;
+		}
+	}
+
+	&-text {
+		font-size: 17px;
+		line-height: 1.7;
+		color: rgba(255, 255, 255, 0.6);
+		margin-bottom: 35px;
+	}
+
+	&-actions {
+		display: flex;
+		gap: 15px;
+
+		@include tablet {
+			justify-content: center;
+		}
+
+		@include phone {
+			flex-direction: column;
+			align-items: center;
+		}
+
+	}
+
+	&-btn {
+		padding: 14px 32px;
+		border-radius: 50px;
+		@include font(500, 14px);
+		cursor: pointer;
+		transition: all 0.3s ease;
+
+		&-primary {
+			padding: 14px 32px;
+			@include glass(50px);
+			border: 1px solid $primary;
+			color: $primary;
+
+			&:hover {
+				background: rgba(0, 240, 255, 0.15);
+				box-shadow: 0 0 25px rgba(0, 200, 220, 0.3);
+				transform: translateY(-2px);
+			}
+		}
+
+		&-secondary {
+			background: transparent;
+			border: 1px solid $glass-border;
+			color: rgba(255, 255, 255, 0.7);
+
+			&:hover {
+				border-color: rgba(255, 255, 255, 0.3);
+				color: #ffffff;
+			}
+		}
+	}
+
+	&-visual {
+		position: relative;
+		height: 400px;
+		@include flex-center;
+
+		@include tablet {
+			height: 300px;
+		}
+
+		@include mobile {
+			display: none;
+		}
+	}
+
+	&-orb {
+		width: 280px;
+		height: 280px;
+		border-radius: 50%;
+		background: radial-gradient(
+			circle at 30% 30%,
+			rgba(0, 240, 255, 0.3),
+			rgba(157, 78, 221, 0.2) 50%,
+			transparent 70%
+		);
+		filter: blur(40px);
+		animation: orbPulse 4s ease-in-out infinite;
+	}
+
+	&-card {
+		@include glass(14px);
+		position: absolute;
+		padding: 16px 22px;
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+		animation: floatCard 6s ease-in-out infinite;
+
+		&::before {
+			content: '';
+			@include position(absolute, 0, 0);
+			right: 0;
+			height: 50%;
+			background: linear-gradient(
+				180deg,
+				rgba(255, 255, 255, 0.08) 0%,
+				transparent 100%
+			);
+			border-radius: 14px 14px 0 0;
+			pointer-events: none;
+		}
+
+		&-icon {
+			font-size: 20px;
+		}
+
+		&-text {
+			@include font(500, 13px, .5px);
+			color: rgba(255, 255, 255, 0.9);
+		}
+
+		&-1 {
+			top: 30px;
+			left: 10%;
+		}
+
+		&-2 {
+			top: 50%;
+			right: 5%;
+			transform: translateY(-50%);
+			animation-delay: -2s;
+		}
+
+		&-3 {
+			bottom: 30px;
+			left: 20%;
+			animation-delay: -4s;
+		}
+	}
+}

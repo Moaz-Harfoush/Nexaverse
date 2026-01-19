@@ -1,0 +1,80 @@
+/*=============== Testimonials ===============*/
+
+@use '../utilities/variables' as *;
+@use '../utilities/mixins' as *;
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+
+    @include mobile {
+        grid-template-columns: 1fr;
+    }
+}
+
+.testimonial-card {
+    @include glass(20px);
+	padding: 30px;
+	position: relative;
+	overflow: hidden;
+    transition: all .8s;
+
+    &-text {
+        font-size: 15px;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 20px;
+        font-style: italic;
+    }
+
+    &::before {
+        content: '"';
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        @include font(500, 80px);
+        color: rgba(0, 240, 255, 0.1);
+        line-height: 1;
+    }
+
+    &:hover {
+        transform: translateY(-10px);
+        border: 1px solid $primary;
+    }
+
+}
+
+.author {
+
+    display: flex;
+	align-items: center;
+	gap: 15px;
+
+    &-avatar {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 2px solid $primary;
+        box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+    
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    }
+    
+    &-info h5 {
+        @include font(500, 14px);
+        color: $primary;
+    }
+
+    &-info p {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+}
